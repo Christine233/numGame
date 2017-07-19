@@ -1,0 +1,22 @@
+{
+  "name": "num-game",
+  "version": "1.0.0",
+  "description": "num-game",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Christine233/numGame.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Christine233/numGame/issues"
+  },
+  "homepage": "https://github.com/Christine233/numGame#readme"
+}
