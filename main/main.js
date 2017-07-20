@@ -21,7 +21,7 @@
 // 优化版
 const readlineSync = require('readline-sync');
 function numGame() {
-  let system = this.systemRandomNum();
+  let system = systemRandomNumObj.sysRandomNum;
   let user = readlineSync.question(`Please input your guessed number: `);
   let a = 0, b = 0;
 //  let systemArr = system.split();
@@ -38,23 +38,26 @@ function numGame() {
   return `${a}A${b}B`;
 }
 
-function systemRandomNum() {
-    let flag = 0;
-    let system = 0;
-    while (flag == 0){
-        let newArr = [];
-        system = Math.floor(Math.random()*1000+1000);
-        let systemArr = system.toString().split('');
-        for(let i in systemArr){
-            if(newArr.indexOf(systemArr[i]) == -1){
-              newArr.push(systemArr[i]);
+const systemRandomNumObj = {
+    sysRandomNum:function systemRandomNum() {
+        let flag = 0;
+        let system = 0;
+        while (flag == 0){
+            let newArr = [];
+            system = Math.floor(Math.random()*1000+1000);
+            let systemArr = system.toString().split('');
+            for(let i in systemArr){
+                if(newArr.indexOf(systemArr[i]) == -1){
+                    newArr.push(systemArr[i]);
+                }
+            }
+            if(newArr.length == systemArr.length){
+                flag = 1;
             }
         }
-        if(newArr.length == systemArr.length){
-          flag = 1;
-        }
+        return system;
     }
-    return system;
 }
-module.exports.systemRandomNum = systemRandomNum;
+
+module.exports.systemRandomNumObj = systemRandomNumObj;
 module.exports.numGame = numGame;

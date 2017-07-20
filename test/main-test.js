@@ -2,16 +2,17 @@
 
 const sinon = require('sinon');
 const readlineSync = require('readline-sync');
-const guessNumGame = require('../main/main.js');
+const systemRandomNumModule = require('../main/main.js');
 
 function shouldReturn0A0B() {
-  var systemNum = sinon.stub(guessNumGame,'systemRandomNum').returns('1234');
+  var systemNum = sinon.stub(systemRandomNumModule,'systemRandomNum').returns('1234');
   var userNum = sinon.stub(readlineSync,'question').returns('5678');
-  const actualResult = guessNumGame.numGame();
+  const actualResult = systemRandomNumModule.numGame();
   console.log(actualResult === '0A0B' ? 'shouldReturn0A0B is passed.' : 'shouldReturn0A0B is failed.');
   userNum.restore();
 }
-shouldReturn0A0B()
+
+shouldReturn0A0B();
 
 // describe('numGame', () => {
 //
